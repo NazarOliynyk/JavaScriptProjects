@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork2CallBacks</title>
+</head>
+<body>
+<script>
+    console.log('--------------------1-----------------');
+    function foo1(callback) {
+        callback();
+    }
+    foo1(function () {
+        console.log('Hello!!!');
+    });
+    console.log('--------------------2-----------------');
+    function foo2(arg, callback) {
+        callback(arg);
+    }
+    foo2('the argument', function (value) {
+        console.log(value);
+    });
+    console.log('--------------------3-----------------');
+    function foo3(x, y, callback) {
+        callback(x, y);
+    }
+    foo3(6576, 687236, function (a, b) {
+        console.log('the action on arguments is', (a+b));
+    });
+    
+    console.log('--------------------3-----------------');
+
+    function foo4(arr, callback) {
+        return arr.sort(callback);
+    }
+
+    let arr = foo4([76, 98, 77.77, -797, -8], function (a, b) {
+        return b - a;
+    });
+    console.log(arr);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork2_1</title>
+</head>
+<body>
+<script>
+
+    function fullCalculator(a, b, operator) {
+        console.log(`Attributes: [${a}, ${b}, ${operator}]`);
+        switch (operator){
+            case '+':{ return a+b;
+                break;
+            }
+            case '-':{ return a-b;
+                break;
+            }
+            case '*':{ return a*b;
+                break;
+            }
+            case '/':{ return a/b;
+                break;
+            }
+            default: { return 'Insert the proper input';
+            }
+        }
+    }
+    console.log(`The result is: ${fullCalculator(88, 99, '/')}`);
+    console.log('--------------------------------------------------------');
+
+    function addition(a, b) {return a+b;}
+    function subtraction(a, b) {return a-b;}
+    function multiplication(a, b) {return a*b;}
+    function division(a, b) {return a/b;}
+
+    function fullCalculatorMod(a, b, operator) {
+        console.log(`Attributes: [${a}, ${b}, ${operator}]`);
+        switch (operator){
+            case '+':{ return addition(a, b);
+                break;
+            }
+            case '-':{ return subtraction(a, b);
+                break;
+            }
+            case '*':{ return multiplication(a, b);
+                break;
+            }
+            case '/':{ return division(a, b);
+                break;
+            }
+            default: { return 'Insert the proper input';
+            }
+        }
+    }
+    console.log(`The result is: ${fullCalculatorMod(88, 99, '/')}`);
+    console.log('--------------------------------------------------------');
+</script>
+</body>
+</html>

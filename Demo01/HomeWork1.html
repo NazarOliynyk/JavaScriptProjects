@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork1</title>
+</head>
+<body>
+
+<script>
+            console.log("Task1");
+    let a1;
+    a1 = prompt("insert a number");
+    if(a1==0){console.log("True");}
+    else if(a1!=0){console.log("False");}
+            console.log("Task2");
+    let min;
+    min =   +prompt("insert a minute ");
+//    switch (min){
+//        case (min>0&&min<=15): console.log("the first quarter");   break;
+//        case (min>15&&min<=30): console.log("the second quarter");   break;
+//        case (min>30&&min<=45): console.log("the third quarter");   break;
+//        case (min>45&&min<=59): console.log("the first quarter");   break;
+//    }
+    if(min>0&&min<=15)  {console.log("the first quarter");}
+    else if (min>15&&min<=30){console.log("the second quarter");}
+    else if (min>30&&min<=45){console.log("the third quarter");}
+    else if (min>45&&min<=59){console.log("the forth quarter");}
+    else {console.log("insert a number only within 0 and 59");}
+
+            console.log("Task3");
+
+    let a2;   a2= prompt("insert the firts number");
+    let b2;   b2= prompt("insert the second number");
+
+    if((a2<= 1) && (b2=>3)){console.log("addition of variables "+ (a2+b2));}
+    else{console.log("subtraction of variables "+ (a2-b2));}
+
+    console.log("Task4");
+
+    let   month; month = +prompt("insert the month - number from 1 to 12");
+    if((month=>3)&&(month<=5))  {console.log("Spring");}
+    else if ((month=>6)&&(month<=8)){console.log("Summer");}
+    else if ((month=>9)&&(month<=11)){console.log("Autumn");}
+    else if ((month=>12)&&(month<=2)){console.log("Winter");}
+    else {console.log("insert a number only within 1 and 12");}
+
+
+         </script>
+</body>
+</html>
+

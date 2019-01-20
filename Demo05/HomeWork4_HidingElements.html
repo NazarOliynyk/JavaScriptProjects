@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+<h1 id="text">Text</h1>
+
+<button class="button1"> Kill Text </button>
+
+<button class="button2">Hide me</button>
+
+<button class="button3">Disable me</button>
+
+<button class="button4">Create</button>
+
+<button class="button5">Create a checkbox </button>
+
+<button class="button6">Get the text </button>
+
+<input type="text" id="myText" value="Some text...">
+
+<p id="demo"> it will be inserted here </p>
+
+<script>
+
+    let text = document.getElementById('text');
+
+    let btn1 = document.getElementsByClassName('button1')[0];
+
+    let btn2 = document.getElementsByClassName('button2')[0];
+
+    let btn3 = document.getElementsByClassName('button3')[0];
+
+    let btn4 = document.getElementsByClassName('button4')[0];
+
+    let btn5 = document.getElementsByClassName('button5')[0];
+
+    let btn6 = document.getElementsByClassName('button6')[0];
+
+
+    btn1.onclick = function () {
+        text.innerText = null;
+      //  text.style.visibility = 'hidden'; // it leaves empty space
+    };
+
+    btn2.onclick = function () {
+        btn2.style.visibility = 'hidden';
+    };
+
+    btn3.onclick = function () {
+        btn3.disabled = true;
+    };
+
+    btn4.onclick = function () {
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode("Click me");
+        x.appendChild(t);
+        document.body.appendChild(x);
+    };
+
+    btn5.onclick = function () {
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "checkbox");
+        document.body.appendChild(x);
+    };
+
+    btn6.onclick = function () {
+        var x = document.getElementById("myText").value;
+        document.getElementById("demo").innerHTML = x;
+    };
+</script>
+</body>
+</html>

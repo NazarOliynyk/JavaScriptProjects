@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork2 Foul Language</title>
+</head>
+
+<body>
+
+<input type="text" id="inp" placeholder="type a word">
+
+
+<script>
+    let arrSweringWords =['arsehole', 'bastard', 'bullshit', 'chesticle ', 'damn', 'faggot', 'hell', '\n' +
+    'jackass', 'motherfucker', 'nigga', 'prick', 'queer', 'shit', 'tard', 'whore'];
+
+    let word = document.getElementById('inp');
+
+        word.oninput = function () {
+            console.log(word.value);
+            for (let swearing of arrSweringWords) {
+                if (swearing === word.value) {
+                    alert('Catch a bully!!');
+                }
+            }
+        };
+
+</script>
+</body>
+</html>

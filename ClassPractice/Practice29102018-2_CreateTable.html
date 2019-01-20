@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Table</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+
+</style>
+<body>
+<button class="btn" ">Create table</button>
+<!--<button onclick="myFunction()">Click me</button>-->
+
+<script>
+
+    let btn = document.getElementsByClassName('btn')[0];
+
+        function createTable(tagInput, trNumber, thNumber){
+
+        let body  = document.body;
+        let tag = document.createElement(`${tagInput}`);
+        tag.style.width = '100%';
+        body.appendChild(tag);
+        let table = document.createElement('table');
+        table.style.width = '100%';
+        tag.appendChild(table);
+
+        let trMain = document.createElement('tr');
+        table.appendChild(trMain);
+
+        for(j=1; j<=thNumber; j++){
+            let th = document.createElement('th');
+            trMain.appendChild(th);
+            th.innerText = j;
+        }
+
+
+        for(let i=1; i<=trNumber; i++) {
+             let tr = document.createElement('tr');
+             let tdHeader = document.createElement('td');
+             table.appendChild(tr);
+            tr.appendChild(tdHeader);
+             for(j=1; j<thNumber; j++){
+              let td = document.createElement('td');
+              tr.appendChild(td);
+
+             }
+            tdHeader.innerText = i;
+        }
+    }
+    //btn.ondblclick = createTable('div', 3, 5); // wrong syntax
+    btn.onclick = function () {createTable('div', 3, 5)}; // this makes onclick work properly
+
+</script>
+</body>
+</html>

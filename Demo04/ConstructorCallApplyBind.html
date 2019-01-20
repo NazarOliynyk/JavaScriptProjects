@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constructor Call Apply Bind</title>
+</head>
+<body>
+<script>
+    console.log('Function - Constructor that buils up objects');
+    function Person(nameInput, surnameInput, ageInput) {
+        this.name = nameInput;
+        this.surname = surnameInput;
+        this.age = ageInput;
+
+        this.greeting = function () {
+            console.log(this);
+        }
+    }
+
+    let rick = new Person('Rick', 'Sanchez', 60);
+    let morty = new Person('Morty', 'Smith', 45);
+
+    //rick.greeting(); // depicts an object rick. this refers to the current object
+
+    function hello(title) {
+        console.log(title);
+        console.log('Hello', this);
+    }
+    hello.call(rick, 'SOME Title');// function call calls curent object
+    hello.apply(rick, ['SOME Title in an array']);// the same effect but arguments are in the form of an array
+    let helloBindedToRick = hello.bind(rick);
+    helloBindedToRick('Some Other Title');
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

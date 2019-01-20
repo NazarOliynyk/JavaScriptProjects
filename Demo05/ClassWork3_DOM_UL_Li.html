@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ClassWork1 DOM Styles </title>
+
+</head>
+<body>
+
+<ul id="list">
+    <li>One li</li>
+    <li>Two li</li>
+    <li>Three li</li>
+</ul>
+
+<script>
+
+    let ul = document.getElementById('list');
+    let children = ul.children;
+    console.log(children); // an array of li elements
+
+    for(let i=0; i<children.length; i++){
+        let li = children[i];
+        li.innerText = li.innerText +', iterated number = ' +i;
+        let randomNum1 = Math.round(Math.random()*255);
+        let randomNum2 = Math.round(Math.random()*255);
+        let randomNum3 = Math.round(Math.random()*255);
+        li.style.background = `rgb(${randomNum1}, ${randomNum2}, ${randomNum3})`;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ClassWork1 DOM Styles </title>
+    <style>
+        .colorful-text{
+            color: deeppink;
+        }
+        .colorful-bg{
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="list">
+    <li>One li</li>
+    <li>Two li</li>
+    <li>Three li</li>
+</ul>
+
+<div id ="container"> Container </div>
+
+<script>
+    let body = document.body;
+    let htmlDocument1 = document.createElement('h4');
+    body.appendChild(htmlDocument1);
+    htmlDocument1.innerText = 'Footer1';
+    htmlDocument1.classList.add('colorful-text');
+
+    let htmlDocument2 = document.createElement('h4');
+    htmlDocument2.innerText = 'Footer2';
+    htmlDocument2.classList.add('colorful-bg');
+    let container = document.getElementById('container');
+    container.appendChild(htmlDocument2); // and it is inside <div>
+
+    let htmlDocument3 = document.createElement('h4');
+    htmlDocument3.innerText = 'Footer3';
+    htmlDocument3.style.color = 'green';
+    body.insertBefore(htmlDocument3, document.getElementById('list')); // sets element defore <ul>
+
+    // it is needed to thrust a new element each time or use cloneNode(true)
+   // body.insertBefore(htmlDocument3, cloneNode(true)); // does not work
+
+
+
+</script>
+</body>
+</html>

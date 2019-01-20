@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MapsExample</title>
+</head>
+<body>
+<script>
+
+    var numbers = [1, 5, 10, 15];
+    var roots = numbers.map(function(x) {
+        return x * 2;
+    });
+    console.log(numbers);
+    console.log(roots);
+    // roots зараз [2, 10, 20, 30]
+    // numbers залишається [1, 5, 10, 15]
+
+    var numbers1 = [1, 4, 9];
+    var roots1 = numbers1.map(Math.sqrt);
+    console.log(numbers1);
+    console.log(roots1);
+    // roots зараз [1, 2, 3]
+    // numbers залишається [1, 4, 9]
+
+
+</script>
+
+</body>
+</html>

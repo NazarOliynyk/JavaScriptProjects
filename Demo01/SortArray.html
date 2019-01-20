@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SortArray</title>
+</head>
+<body>
+<script>
+
+    let arr =[];
+    arr[0]= +prompt("Insert the first number");
+    arr[1]= +prompt("Insert the second number");
+    arr[2]= +prompt("Insert the third number");
+    arr[3]= +prompt("Insert the forth number");
+    arr[4]= +prompt("Insert the fifth number");
+    function compare(a, b) {
+        return a - b;
+    }
+    arr.sort(compare);
+    console.log(arr);
+
+</script>
+</body>
+</html>

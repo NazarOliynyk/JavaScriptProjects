@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ClassWork_OOP_Constructor</title>
+</head>
+<body>
+<script>
+
+console.log('Function - Constructor that buils up objects');
+
+function Person(nameInput, surnameInput, ageInput) {
+    this.name = nameInput;
+    this.surname = surnameInput;
+    this.age = ageInput;
+
+    this.greeting = function () {
+        console.log('Hello, my name is ', this.name);
+    }
+}
+Person.prototype.greetingAdditional = function () {
+    console.log('It is something which is not inherited by ancestors ', this.name);
+}
+
+function  Developer(nameInput, surnameInput, ageInput, skillsInput) {
+
+    Person.apply(this, arguments); // arguments - a keyword
+    this.skills = skillsInput;
+
+    this.coding = function () {
+        console.log('Tuc, Tuc, Tuc');
+    }
+}
+Developer.prototype.__proto__=Person.prototype; //allows to inherit specific functions which are not in Person definition
+
+let developer = new Developer('Mister', 'Piklz', 666, ['JS']);
+developer.greeting();
+let developer1 = new Developer('XXX', 'YYY', 555, ['DB']);
+
+console.log('Althoug it is always better to write functions in prototipe clause /n as if in "greetingAdditional"!!!');
+developer1.greeting();
+developer1.greetingAdditional();
+developer1.coding();
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

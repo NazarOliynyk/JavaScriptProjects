@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video21Prototype</title>
+</head>
+<body>
+
+<script>
+
+    let user = {name: 'vasya', age: 32};
+    let nextUser = Object.create(user);
+    console.log(nextUser.age);
+    console.log('---------------------------------------');
+    for(let key in user){
+        console.log(key);
+    }
+    console.log('---------------------------------------');
+    for(let key in nextUser){
+        console.log(key);
+    }
+console.log('---------------------------------------');
+    console.log(nextUser.hasOwnProperty('name'));
+    console.log('---------------------------------------');
+    for(const key in nextUser){
+        console.log((key, nextUser[key]));
+    }
+    console.log('---------------------------------------');
+    //both properties belong to user, but not to nextUser!!
+
+    for(const key in nextUser){
+        console.log((key, nextUser[key]), nextUser.hasOwnProperty(key));
+    }
+    console.log('---------------------------------------');
+    nextUser.name='petya';
+
+    for(const key in nextUser){
+        console.log((key, nextUser[key]), nextUser.hasOwnProperty(key));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ClassWork7</title>
+</head>
+
+<style>
+    .foo{
+        width: 200px;
+        height: 200px;
+        background: green;
+    }
+</style>
+
+<body>
+
+<div class="foo"></div>
+<input type="text" id="color">
+<p id="Pcolor"> Hello World</p>
+
+<script>
+
+    let fooDiv = document.getElementsByClassName('foo')[0];
+    //console.log('bacground -', fooDiv.style.background );
+
+    fooDiv.onmousedown = function (emd){
+    fooDiv.onmousemove = function (ev) {
+        if (emd.button === 0) {
+            fooDiv.style.background = `rgb(${ev.clientX}, ${ev.clientY}, ${ev.clientX})`;
+            //fooDiv.style.background = 'red';
+        }
+    }
+    };
+    fooDiv.onmouseup = function () {
+        fooDiv.onmouseover = null;
+    };
+
+    let inputColor = document.getElementById('color');
+    inputColor.oninput = function (event) {
+        console.log(inputColor.value);
+        fooDiv.style.background = inputColor.value;
+        fooDiv.innerText = inputColor.value;
+    }
+
+    let Pcolor = document.getElementById('Pcolor');
+    Pcolor.ondblclick = function () {
+        console.log('clicked');
+        let inputP = document.createElement('input');
+        inputP.value = Pcolor.innerText;
+
+        document.body.replaceChild(inputP, Pcolor);
+
+        inputP.onblur = function () {
+            console.log('blur');
+            Pcolor.innerText = inputP.value;
+            document.body.replaceChild( Pcolor, inputP);
+        }
+        Pcolor.innerText = inputP.value;
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

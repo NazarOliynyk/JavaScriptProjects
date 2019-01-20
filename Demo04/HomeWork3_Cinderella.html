@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cinderella</title>
+</head>
+<body>
+<script>
+    class Human{
+        constructor(nameInput, ageInput){
+            this.name = nameInput;
+            this.age = ageInput;
+
+        }
+        sayHello(){
+            console.log('Hello! My name is ', this.name, ", I'm ", this.age);
+        }
+    }
+
+    class Cinderella extends Human{
+        constructor(nameInput, ageInput, footSizeInput){
+            super(nameInput, ageInput);
+            this.footSize = footSizeInput;
+        }
+    }
+
+    class Prince extends Human{
+        constructor(nameInput, ageInput, foundShoeInput){
+            super(nameInput, ageInput);
+            this.foundShoe = foundShoeInput;
+        }
+    }
+
+    let Ania = new Cinderella('Ania', 19, 36.5);
+    let Anastasia = new Cinderella('Anastasia', 22, 35.5);
+    let Barbara = new Cinderella('Barbara', 21, 34.5);
+    let Galia = new Cinderella('Galia', 24, 37.5);
+    let Luba = new Cinderella('Luba', 25, 35);
+    let Ira = new Cinderella('Ira', 23, 36);
+    let Roksa = new Cinderella('Roksa', 20, 37);
+
+    let Garry = new Prince('Garry', 30, 35);
+
+    Luba.sayHello();
+    Garry.sayHello();
+    console.log(Luba.footSize ,', ', Garry.foundShoe);
+
+    let cinderellas = [Ania, Anastasia, Barbara, Galia, Luba, Ira, Roksa];
+
+    function contest(girls, prince) {
+
+        for(var i=0; i < girls.length; i++)
+            if(cinderellas[i].footSize === prince.foundShoe){
+                return girls[i];
+            }
+
+
+    }
+    let princess = contest(cinderellas, Garry);
+    console.log('Meet new princess -');
+    princess.sayHello();
+
+</script>
+</body>
+</html>

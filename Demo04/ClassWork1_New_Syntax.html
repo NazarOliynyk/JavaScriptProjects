@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Constructor Call Apply Bind</title>
+</head>
+<body>
+<script>
+
+    class Animal{
+        constructor(name, age){
+            this.name = name;
+            this.age = age
+        }
+        sayHello(){
+            console.log('Hello ', this.name, this.age);
+        }
+        eat(){
+            console.log('AmAmAm');
+        }
+        voice(){
+            console.log('aaaaaaaaaa!!');
+        }
+    }
+    let animal = new Animal('XXX', 454);
+    console.log(animal);
+    animal.sayHello();
+
+    class Dog extends Animal{
+        constructor(name, age, color){
+            super(name, age);
+            this.color = color;
+        }
+        voice(){
+            super.voice(); // calls the function from parental class
+            console.log('Gav Gav Gav');
+        }
+    }
+// this is polimorphism - transition of functions from parent to ancestor
+
+    let doggy= new Dog('Tuzik', 16, 'red');
+    console.log(doggy); // keeps eat, voice and sayHello in it's proto
+    doggy.voice();
+
+// incapsulation - data protection - hiding the visibility of fields
+
+    class Person{
+        constructor(name, creditCard){
+            this.name = name;
+            this._creditCard = creditCard;
+        }
+        get creditCard(){ return '**********';
+            // let temp = this._creditCard.split(``);
+            // temp[2] ='*';
+            // temp[3] ='*';
+            // temp[4] ='*';
+            // temp[5] ='*';
+            // return temp.join('');
+        }
+        set creditCard(newCreditCard){ // must have an argument
+            console.log('Can not set new data');
+        }
+    }
+    let person = new Person('XXX' , 62368723);
+    console.log(person.creditCard); // getter works HERE
+    person.creditCard = '687364786'; // setter works HERE
+    console.log(person._creditCard);
+
+    console.log('-----------------------------------------');
+    console.log('Yet another method to create a new object');
+
+    let human = {
+        name: 'Eric',
+        surname: 'Klepton'
+    };
+
+    let newPerson = Object.create(human);
+    console.log(newPerson.name,' ', newPerson.surname);
+    newPerson.name = 'Adam';
+    //newPerson.surname = 'Mickewich';
+    console.log(newPerson.name,' ', newPerson.surname);
+    newPerson.age = 43;
+    console.log(newPerson);
+    console.log(newPerson.hasOwnProperty('age'));
+    console.log(newPerson.hasOwnProperty('surname'));
+
+    for(const key in  newPerson){
+        console.log(key, newPerson.hasOwnProperty(key));
+    }
+
+    console.log('-----------------------------------------');
+    console.log('Recursion');
+
+    function  inc(start) {
+        if(start <10){
+            console.log(start);
+            inc(++start)
+        }
+    }
+    inc(0); // selfinvoked
+
+    </script>
+</body>
+</html>

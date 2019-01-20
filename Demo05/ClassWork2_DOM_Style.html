@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ClassWork1 DOM Styles </title>
+    <style>
+        .colorful-text{
+            color: deeppink;
+        }
+        .colorful-bg{
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="title1"> h2 with title 1 id</h2>
+<h2 id="title2"> h2 with title 2 id</h2>
+<h2 class="title3"> h2 with title 3 class</h2>
+<h2 id="title4"> h2 with title 4 id</h2>
+<h2 id="title5"> h2 with title 5 id</h2>
+<h2 id="title6"> h2 with title 6 id</h2>
+
+<script>
+    console.log("----------------- adjusting tags - see the browser what has changed ----------------");
+    let title1 = document.getElementById('title1');
+    title1.innerText = '<em> Hello World!! </em>'; // it sets new text
+    let title2 = document.getElementById('title2');
+    title2.innerHTML = '<em> Hello World!! </em>'; // it sets a new HTML tag inside
+    console.log(title2.outerHTML); // shows what was before we changed styles
+    // title2.outerHTML='';  // it erases the whole tag
+
+    console.log("----------------- query Selectors ----------------");
+    console.log(document.querySelector('#title1')); // gives a changed tag
+    console.log(document.querySelectorAll('#title1')); // gives a pseudo array
+    console.log(document.querySelector('.title3'));
+
+    console.log("----------------- get Attribute & set Attribute ----------------");
+    let title4= document.getElementById('title4');
+    console.log(title4.getAttribute('id'));
+    title4.setAttribute('xxx', 'yyy'); // adds new attributes to a tag with title4 id
+    console.log(title4);
+
+    let title5 = document.getElementById('title5');
+    title5.setAttribute('class', 'colorful-text colorful-bg');
+    // title5.setAttribute('class', 'colorful-bg'); // it just substitute one class by another
+     // title5.classList.add('colorful-bg');
+    // console.log(title5.classList.contains()); does not work
+    // title5.classList.toggle(); does not work
+    let title6 = document.getElementById('title6');
+    title6.style.background = 'red';
+    // title6.style.backgroundColor = 'green'; // also works for background
+    title6.style.color = 'yellow';
+
+
+</script>
+</body>
+</html>

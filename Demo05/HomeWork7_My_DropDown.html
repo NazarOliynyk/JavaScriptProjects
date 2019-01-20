@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork7 My DropDown</title>
+</head>
+
+<style>
+
+    .container{
+        width: 200px;
+        height: 0px;
+        background: gray;
+    }
+    .box{
+        width: 80%;
+        height: 30%;
+        text-align: center;
+        font-family: "DejaVu Serif Condensed";
+        background: firebrick;
+        margin: 0 auto;
+    }
+
+</style>
+
+<body>
+
+<button id="btn1">Choose</button>
+<button class="btn2">Hide</button>
+<div class="container">
+    <div class="box"> </div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+
+<script>
+
+
+
+    let btn1 = document.getElementById('btn1');
+    let btn2 = document.getElementsByClassName('btn2')[0];
+
+
+    let container = document.getElementsByClassName('container')[0];
+
+    let box1 = document.getElementsByClassName('box')[0];
+    let box2 = document.getElementsByClassName('box')[1];
+    let box3 = document.getElementsByClassName('box')[2];
+
+    btn1.onclick = function () {
+      container.style.height = `${120}px `;
+        container.style.border = '2px solid black';
+        box1.style.border = '2px solid black';
+        box2.style.border = '2px solid black';
+        box3.style.border = '2px solid black';
+        box1.innerText = 'insert';
+        box2.innerText = 'delete';
+        box3.innerText = 'scroll';
+
+    };
+
+    btn2.onclick = function () {
+        container.style.height = ' 0';
+        container.style.border = ' 0';
+        box1.style.border = ' 0';
+        box2.style.border = ' 0';
+        box3.style.border = ' 0';
+        box1.innerText = ' ';
+        box2.innerText = ' ';
+        box3.innerText = ' ';
+    }
+
+</script>
+</body>
+</html>

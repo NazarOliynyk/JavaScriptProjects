@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyFirstJavaScript</title>
+</head>
+<body>
+
+
+<<script>
+    var a= 'abracadabra';
+    console.log(a);
+    console.log(3>2);
+    var a= 12344;
+    console.log(a);
+    const PI =3.14;
+    // PI = 33.3;
+    // // console.log(PI);
+     let pi = 333.33;
+    console.log(PI);
+    console.log(pi);
+    let greeting='Hello guys';
+    console.log(greeting);
+    let AnotherGreeting = greeting;
+    console.log(AnotherGreeting);
+    console.log(10 + 20);
+    console.log(10 + 20 + AnotherGreeting);
+    console.log( AnotherGreeting +10 +20);
+    console.log( AnotherGreeting +(10 +20));
+    console.log( '   ' +10 +20);
+    console.log( '   ' +(10 +20));
+    let bool = 5>2 || 3<2;
+    console.log(bool);
+     bool = 5>2 && 3<2;
+    console.log(bool);
+    console.log(!!greeting);
+    let b;
+    console.log(!!b);
+    console.log(!!'');
+    console.log(!!' ');
+    b = NaN;
+    console.log(b);
+    console.log(!!b);
+    console.log(typeof b);
+    b= '123';
+    console.log(b);
+    console.log(+b);
+    console.log(parseInt(b));
+    let x;
+    console.log(x);
+    x=null;
+    console.log(x);
+    console.log(typeof x);
+    let hero1 = 'batman';
+    let hero2 = 'superman';
+    let hero3 = 'spiderman';
+    let hero4 = 'wolverine';
+    let heroes = [hero1, hero2, hero3, hero4];
+    console.log(heroes);
+    heroes= [hero1, hero2, [1, 2, 3], hero3, hero4];
+    console.log(heroes);
+    console.log(heroes[2][1]);
+     let jump = 1.7;
+      let pit= parseFloat(prompt("enter the width of a river"));
+      let NextAction;
+      if(jump>pit){ NextAction = "I'll jump over it";}
+      else if(jump<pit){ NextAction = "I'll circumvent it";}
+      else {NextAction = "I hesitate";};
+      console.log(NextAction);
+     let isYourLegOK = confirm("Is your leg OK");
+      let p = parseFloat(prompt("enter something"));
+      console.log(p);
+//     let pit= parseFloat(prompt("enter the width of a river"));
+//     let NextAction;
+     if(jump>pit && isYourLegOK){ NextAction = "I'll jump over it";}
+     else if(jump<pit|| isYourLegOK){ NextAction = "I'll circumvent it";}
+     else {NextAction = "I hesitate";};
+     console.log(NextAction);
+     switch (prompt("type the color")) {
+         case("red"):  console.log("do not go"); break;
+         case("yellow"): console.log("wait"); break;
+         case("green"): console.log("GO"); break;
+         default: console.log("wrong input");
+     }
+    console.log(23%7);
+    let y;
+     y = '5' == '5';
+    console.log(y);
+     y = '5' == 5;
+    console.log(y);
+     y = '5' === '5';
+    console.log(y);
+     y = '5' === 5;
+    console.log(y);
+    console.log('ABC"HHH"DFJ'); //QUOTATION MARKS
+    console.log(8%9);
+
+
+
+
+</script>
+
+
+</body>
+</html>

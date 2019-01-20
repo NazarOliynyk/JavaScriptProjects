@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice2910218-1</title>
+</head>
+<style>
+
+    .div{
+        width: 300px;
+        height: 50px;
+        border: 2px solid black;
+        background: green;
+    }
+    .input{
+        margin: o auto;
+    }
+</style>
+<body>
+<div class="div"> <input class="inp1" class="input" placeholder="type 1"> </div>
+
+<div class="div"> <input class="inp1" class="input" placeholder="type 2"> </div>
+
+<button class="btn1">Click</button>
+<button class="btn2">Click</button>
+
+<p class="p1">p1</p>
+
+<p class="p2">p2</p>
+
+<script>
+
+    let btn1 = document.getElementsByClassName('btn1')[0];
+    let btn2 = document.getElementsByClassName('btn2')[0];
+
+    btn1.onclick = function () {
+
+        let inp1= document.getElementsByTagName('input')[0];
+       // let inp2= document.getElementsByTagName('input')[1];
+        let p1 = document.getElementsByClassName('p1')[0];
+        //let p2 = document.getElementsByClassName('p2')[0];
+        console.log(inp1.value);
+
+
+            p1.innerText = inp1.value;
+
+
+
+    };
+
+
+    btn2.onclick = function (ev) {
+        //let inp1 = document.getElementsByTagName('input')[0];
+        let inp2 = document.getElementsByTagName('input')[1];
+        //let p1 = document.getElementsByClassName('p1')[0];
+        let p2 = document.getElementsByClassName('p2')[0];
+//
+        console.log(inp2.value);
+
+            p2.innerText = inp2.value;
+
+    };
+
+</script>
+
+</body>
+</html>

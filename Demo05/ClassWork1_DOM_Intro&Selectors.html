@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ClassWork1 DOM Intro & Selectors </title>
+    <!-- comment just to be wisible in head.childNodes -->
+</head>
+<body>
+
+<h1> First </h1>
+<h1> Second </h1>
+<h1> Third </h1>
+
+<h2 id="title"> h2 with title id</h2>
+
+<p class="xxx">the first paragraph </p>
+<p class="xxx">the second paragraph </p>
+<p> an empty tags go below</p>
+<p> </p>
+<p> </p>
+
+<h3 name ="head"> h3 with head name </h3>
+
+<script>
+
+    console.log(document);
+    // head & body ara unique in an html document
+    let head = document.head;
+    let body = document.body;
+
+    console.log('---------------elements of head-------------');
+    console.log(head.children); // there are a few subsequent elements as meta(3) and title(1) inside
+    console.log(head.children[0]); // all children are in a pseudo array
+    console.log(head.childNodes); // an array, if we delete spaces between <meta> tags - those text fields will disappear
+
+    console.log('---------------elements of body-------------');
+    console.log(body.children);
+    let second = body.children[1];
+    console.log(second);
+    console.log(second.nextElementSibling);
+    console.log(second.previousElementSibling);
+    console.log(second.nextSibling);  // do not confuse with nextElementSibling!
+
+    console.log('---------------how to select an element with selectors -------------');
+
+    let h2 = document.getElementById('title');
+    console.log(h2); // only getElementById gives one element!!
+    // the rest selectors give arrays of Elements,- it is seen from their names
+    let psClass = document.getElementsByClassName('xxx');
+    console.log(psClass);
+    let psTag = document.getElementsByTagName('p');
+    console.log(psTag);
+    let h3 =document.getElementsByName('head');
+    console.log(h3);
+</script>
+
+</body>
+</html>

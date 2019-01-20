@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork2_car_Constructor</title>
+</head>
+<body>
+<script>
+
+    class Car{
+        constructor(makeInput, modelInput, colorInput, fuelInput, yearInput){
+            this.make = makeInput,
+            this.model = modelInput,
+            this.color = colorInput,
+            this.fuel = fuelInput,
+            this.year = yearInput
+        }
+        drive(){
+            console.log('The car- ', this.make, ',model- ', this.model, ',color- ', this.color, ',kind of fuel- ',this.fuel, ',year of production- ', this.year );
+        }
+    }
+
+   // console.log(Car);
+
+let Kia = new Car('KIA', 'Cerato', 'Silver', 'gasoline', 2008);
+    Kia.drive();
+
+    let KiaJSON= JSON.stringify(Kia);
+    console.log(KiaJSON);
+    let KiaReborn = JSON.parse(KiaJSON);
+    console.log(KiaReborn);
+
+//   KiaReborn.drive(); // drive does not exists in KiaReborn
+
+    let CarJSON = JSON.stringify(Car); // can not use JSON to classes, only to objects
+    console.log(CarJSON); // undefined
+   // let CarReborn = JSON.parse(CarJSON);
+   // console.log(CarReborn);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video23  DOM</title>
+</head>
+<body>
+
+<!--dbib-->
+
+
+<h1 class="company"> Hello OktenWeb </h1>
+
+<p class="target"> bcahbvchebjhlbckjb bbwvbefvbei bwdvbiubviu jnnbijnokjn nnb[ibnuinb
+</p>
+
+<ul>
+    <li class="list"> data1 </li>
+    <li class="list"> data2 </li>
+    <li class="list"> data3 </li>
+</ul>
+
+<form id="main1">
+    <input type="text" name="input1" placeholder ="feld 1">
+    <input type="text" name="input2" placeholder ="feld 2">
+    <input type="text" name="input3" placeholder ="feld 3">
+</form>
+<input type="submit" id="send" value="push me 1">
+<input type="submit" id="send" value="push me 2">
+
+<script>
+    // console.log(document);
+    // console.log(document.head);
+    // console.log(document.body);
+    // console.log(document.body.children); //all properties are in a pseudoarray
+    console.log(document.body.childNodes);
+    console.log(document.body.children[2]);
+    console.log(document.body.children[2].children); //gives an html collection of li tags
+
+    let lis = document.getElementsByTagName('li'); //gives an html collection of li tags
+    console.log(lis);
+
+    let index =0;
+    for(const li of lis){
+        li.setAttribute('li', 'newId-'+ index);
+        index++;
+        li.style.background= `rgb(${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)})`;
+        //li.style.background= 'red';  // above there is ` instead of '
+        li.innerText='new data inserted in script tag -'+index;
+    }
+
+    // the same can be done with following element of <li> ByClassName !!
+
+    let lists = document.getElementsByClassName("list");
+    console.log(lists);
+    for(const list of lists){
+       list.style.color= 'yellow';
+    }
+
+    // and by id only one elemnt is chosen
+    let sendInput= document.getElementById("send");
+    // it works with only the first element of send
+    sendInput.style.background = 'purple';
+    // adding and removing classes
+    let company = document.getElementsByClassName('company')[0]; // display it as an array
+    company.classList.add('newCompany');
+    //company.classList.remove('newCompany');
+
+    console.log(company.classList.contains('newCompany'));
+    company.classList.toggle('xxx');
+    console.log(company.classList);
+    company.classList.toggle('xxx'); // toggle adds value if not exists or deletes it if exists
+    console.log(company.classList);
+
+    // selector with CSS sintax .class
+    let selectlist = document.querySelectorAll('.list');
+    console.log(selectlist); // prints so-called NodeList of 3 elements
+    // selector 1 element
+    let selectOne = document.querySelector('li');
+    console.log(selectOne);
+
+    //creating new tags or elements
+    let divElement = document.createElement('div');
+    divElement.innerHTML= '<em>hello</em>';
+    divElement.style.color = 'pink';
+    document.body.appendChild(divElement); // adding it to body at the end of body tag
+    // adding an element in a certain position
+    let divElement1 = document.createElement('div');
+    divElement1.innerText= 'divElement added to body will be before send';
+    divElement1.style.background = 'aquamarine';
+    document.body.insertBefore(divElement1, document.getElementById('send'));
+    // adding the same elements after each other
+    document.body.appendChild(divElement); // it will not work - following sintax needed
+    document.body.appendChild(divElement.cloneNode(true));
+    document.body.appendChild(divElement.cloneNode(true));
+
+    let button = document.getElementById('send');
+    console.log(button.parentElement); // shows who is the father
+    console.log(button.getAttribute('id')); // shows attributes of an element
+
+
+</script>
+</body>
+</html>

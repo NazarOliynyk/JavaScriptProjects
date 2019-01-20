@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures</title>
+</head>
+<body>
+<script>
+
+
+
+    function outer() {
+        let xxx=45;
+        function increment() {
+            return ++xxx;
+        }
+        return increment;
+    }
+
+    let incrementFromOuter = outer();
+    console.log(incrementFromOuter);
+    console.log(incrementFromOuter());
+    console.log(incrementFromOuter());
+    console.log(incrementFromOuter());
+
+    function outer2() {
+        let person={name:'Petya'};
+        function getName() {
+            return person.name;
+        }
+        function setName(newName) {
+            person.name= newName;
+        }
+        return {
+            getName,
+            setName
+        };
+    }
+
+    let getNameFromOuter2 = outer2();
+    //    outer2.setName('Misha');
+    console.log(outer2());
+    console.log(getNameFromOuter2);
+    console.log(getNameFromOuter2.getName());
+    getNameFromOuter2.setName('Misha');
+    console.log(getNameFromOuter2);
+    console.log(getNameFromOuter2.setName('Misha'));
+</script>
+</body>
+</html>

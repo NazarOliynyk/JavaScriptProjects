@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork1</title>
+</head>
+<body>
+<script>
+console.log('------------------1&2------------------');
+    function comparison1_2(a, b, c) {
+        let arr = [];
+        arr.push(a);
+        arr.push(b);
+        arr.push(c);
+        let min = arr[0];
+        let max = arr[0];
+        for(const element of arr){
+            if (element < min){
+                min = element;
+            }
+            if(element > max){
+                max = element;
+            }
+        }
+        return{
+            min: min,
+            max: max // do not type ; here
+        }
+    }
+    let res1_2 = comparison1_2(78, 564, 45);
+    console.log(res1_2);
+console.log('------------------3&4&5&6------------------');
+
+    function comparison1_3() {
+    let arr =[]  ;
+
+    for(const argument of arguments) {
+        arr.push(argument);
+        }
+        let min = arr[0];
+        let max = arr[0];
+        for(const element of arr){
+            if (element < min){
+                min = element;
+            }
+            if(element > max){
+                max = element;
+            }
+        }
+        return{
+            arr: arr,
+            min: min,
+            max: max // do not type ; here
+        }
+    }
+        console.log(comparison1_3(4564, 55, 45,1553));
+    let res1_3 = comparison1_3(545, 455,  415415, 522525, -454);
+    console.log(res1_3);
+
+    console.log('---------------------7---------------------');
+
+    let arr7 = [43, 878.45,64,900, 98.3, -76, 676.98];
+
+function compare(a, b) {
+    return b - a;
+}
+// arr7.sort(compare);
+//
+function typeSortedArray(arr, callback){
+    return arr.sort(callback);
+}
+typeSortedArray(arr7, function (a, b) {
+    return a-b;
+});
+console.log(arr7);
+
+typeSortedArray(arr7, function (a, b) {
+    return b-a;
+});
+console.log(arr7);
+
+</script>
+</body>
+</html>

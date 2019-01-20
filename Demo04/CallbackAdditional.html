@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CallBacksAdditional</title>
+</head>
+<body>
+<script>
+
+    function sum(a, b, callback){
+        return  callback(a,b);}
+
+    let res = sum(1, 2, function(num1, num2){
+        return num1+num2;
+    });
+    console.log(res);
+
+    console.log('____________________________________________');
+
+    function foo4(arr, callback) {
+        return arr.sort(callback);
+    }
+
+    let arr = foo4([76, 98, 77.77, -797, -8], function (a, b) {
+        return b - a;
+    });
+    console.log(arr);
+
+    console.log('____________________________________________');
+
+    function foo3(x, y, callback) {
+        callback(x, y);
+    }
+    foo3(6576, 687236, function (a, b) {
+        console.log('the action on arguments is', (a+b));
+    });
+
+</script>
+
+</body>
+</html>

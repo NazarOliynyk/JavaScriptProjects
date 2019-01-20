@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HandleArrays</title>
+</head>
+<body>
+<script>
+    let persons=[
+        {name: 'xxx', age: 45},
+        {name: 'yyy', age: 75},
+        {name: 'bbb', age: 25},
+        {name: 'ccc', age: 32},
+        {name: 'zzz', age: 24},
+    ];
+    let filtered= persons.filter(function (value) {
+        return value.age >30;
+    });
+    console.log(filtered); // does not change current array
+
+    persons.sort(function (a, b) {
+        return a.age - b.age;
+    });
+    console.log(persons);
+    persons.sort(function (a, b) {
+        return b.age - a.age;
+    });
+    console.log('Reverse order for persons', persons);
+
+    let agedPersons= persons.map(function (value) {
+        return value.age+=100;
+    });
+    console.log(agedPersons); // does not change current array
+
+    //    let findYouth= persons.find(function (value) {
+    //        return value.age ===25;
+    //    });
+    //    console.log(findYouth);
+
+    //    persons.findIndex
+
+    let agedAtLeastSome = persons.some(function (value) {
+        return value.age>160;
+    });
+    console.log(agedAtLeastSome);
+    let agedAll = persons.every(function (value) {
+        return value.age>160;
+    });
+    //    console.log(persons);
+    console.log(agedAll);
+
+    persons.forEach(function (value) {
+        console.log(value) ;
+    });
+
+    let overallAge = [454, 4, 88, 54.54, 444.55].reduce(function (prev, next) {
+        console.log(prev, next);
+        return prev + next;
+    });
+    console.log(overallAge);
+
+</script>
+</body>
+</html>

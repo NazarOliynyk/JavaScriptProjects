@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video24 Forms API</title>
+
+</head>
+<body>
+
+<form id="main1">
+    <input class="list" type="text" name="input1" placeholder ="feld 1" value="oktenweb">
+    <input type="text" name="input2" placeholder ="feld 2">
+    <input type="text" name="input3" placeholder ="feld 3">
+</form>
+
+<script>
+    // one way to get something
+    document.getElementById('main1');
+    // or address forms
+    let main1 = document.forms.main1;
+    console.log(main1);
+    console.log(main1.input1);
+    console.log(main1.input1.value);
+</script>
+
+</body>
+</html>

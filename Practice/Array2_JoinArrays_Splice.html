@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array2 Join & Splice</title>
+</head>
+<body>
+
+<script>
+    console.log('---------------callbacks-----------');
+
+    function complexCallback(callback, ...args) {
+        callback(...args);
+    }
+
+    complexCallback(function (a, b, c) {
+       console.log(c, (a+b));
+    }, 5, 10, 'the sum is - ');
+
+    console.log('---------------Join Arrays-----------');
+    let arr1 =[11, 22, 33];
+    let arr2 =[44, 55, 66];
+    function concatenateArrays(arr1, arr2) {
+        let arrConcatenated =[];
+        for(var element of arr1){
+            arrConcatenated.push(element);
+        }
+        for(var element of arr2){
+            arrConcatenated.push(element);
+        }
+        return arrConcatenated;
+    }
+    let arrConcatenated = concatenateArrays(arr1, arr2);
+
+    console.log(arrConcatenated);
+
+    console.log('---------------splice method - allows to add elements in a specific order -----------');
+    let arrSpliced= [1,2,3,4,5,6 ];
+    let arr3 = ['a', 'b', 'c', 'e'];
+    arrSpliced.splice(1, 1, arr3[0], arr3[1]);// deletes the 1-st element and adds 2 outer elements
+    console.log(arrSpliced);
+    arrSpliced.splice(4, 1, arr3[2]);// deletes the 4-th element and add3 1 outer
+    console.log(arrSpliced);
+    arrSpliced.splice(7, 0, arr3[3]);// just adds 1 outer element after the 7-th because of '0' after '7'
+    console.log(arrSpliced);
+</script>
+</body>
+</html>

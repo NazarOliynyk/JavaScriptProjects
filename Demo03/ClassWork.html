@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork2_1</title>
+</head>
+<body>
+
+<script>
+    function HelloWorld() {console.log('HelloWorld!'); }
+    HelloWorld();
+    console.log('--------------------------------------------------------');
+    //console.log(HelloWorld());
+    console.log(HelloWorld);
+    console.log('--------------------------------------------------------');
+    function calculator(a, b) {
+        console.log('InsideCalculator');
+        let res = a +b;
+        return res;
+    }
+    console.log('result is ', calculator(25, 28));
+    console.log('--------------------------------------------------------');
+    function generateRandomNumber() {
+        return Math.random();
+    }
+    let a = generateRandomNumber();
+    let b = generateRandomNumber();
+    console.log('randomized numbers are ', a, b);
+    console.log('--------------------------------------------------------');
+   function prettyPrintArray(arr) {
+       for (let i =0; i<arr.length; i++)
+           //console.log('Index i ' , i , ' Value ' , arr[i]);
+            console.log(`Index: ${i} - Value: ${arr[i]} `);
+   }
+    prettyPrintArray(['Vasya', 'Misha', 'Galia', 'Yulia', 'Marta']);
+    console.log('--------------------------------------------------------');
+    function sum(){
+        console.log(arguments); //the word arguments should be here
+    }
+       console.log(sum(4,7,8));
+    console.log('In case we do not know the quantity of arguments');
+    function sum1(){
+        let res=0;
+        for(const argument of arguments){
+            res += argument;
+        }
+        return res;
+    }
+    console.log(sum1(4,7,8));
+    console.log('The same but with a novelty from EcmaScript-6');
+    function sum2(...args){ //the word args is optional
+        console.log(args);
+        let res=0;
+        for(const argument of args){
+            res += argument;
+        }
+        return res;
+    }
+    console.log(sum2(4,7,8, 10, 3, 28));
+    console.log('This ...args is like additional data');
+    function sum2(a,b, ...args){
+        console.log(args);
+        let res=0;
+        for(const argument of args){
+            res += argument;
+        }
+        res +=a+b;
+        return res;
+    }
+    console.log(sum2(555, 888, 4,7,8, 10, 3, 28));
+    console.log('--------------------------------------------------------');
+    HelloWorld2(); //it can be called either befor the function declaration or after
+    function HelloWorld2() {console.log('Hello World -2');}
+    HelloWorld2();
+    console.log('--------------------------------------------------------');
+    let helloWorld = function () {console.log('Hello World -3');};
+    let xxx = helloWorld();
+    let yyy = helloWorld;
+    console.log(xxx);
+    console.log(yyy);
+    //xxx();///Uncaught TypeError: xxx is not a function
+    yyy();
+    console.log('--------------------------------------------------------');
+    (function (a, b) {
+        console.log('Self Invoked Function', a,b);
+    }(445, 4546)); // works without any arguments
+    console.log('--------------------------------------------------------');
+    let person = {
+        name: 'Garry',
+        surname: 'Potter',
+        deed: function () {console.log('The deed of Garry');},
+        greeting: function () {console.log('Hello ', this.name);}
+    }
+    console.log(person);
+    console.log(person.deed);
+    console.log(/*person.name, */ person.deed());
+    person.deed();
+    person.greeting();
+    console.log('--------------------------------------------------------');
+    let personJSON= JSON.stringify(person);
+    console.log(personJSON);
+    let personReborn = JSON.parse(personJSON);
+    console.log(personReborn);
+    console.log('--------------------------------------------------------');
+    let persons=[
+        {name: 'xxx', age: 45},
+        {name: 'yyy', age: 75},
+        {name: 'bbb', age: 25},
+        {name: 'ccc', age: 32},
+        {name: 'zzz', age: 24},
+    ];
+   let filtered= persons.filter(function (value) {
+        return value.age >30;
+    });
+    console.log(filtered); // does not change current array
+
+    persons.sort(function (a, b) {
+       return a.age - b.age;
+    });
+    console.log(persons);
+    persons.sort(function (a, b) {
+        return b.age - a.age;
+    });
+    console.log('Reverse order for persons', persons);
+
+    let agedPersons= persons.map(function (value) {
+        return value.age+=100;
+    });
+    console.log(agedPersons); // does not change current array
+
+//    let findYouth= persons.find(function (value) {
+//        return value.age ===25;
+//    });
+//    console.log(findYouth);
+
+//    persons.findIndex
+
+    let agedAtLeastSome = persons.some(function (value) {
+       return value.age>160;
+    });
+    console.log(agedAtLeastSome);
+    let agedAll = persons.every(function (value) {
+        return value.age>160;
+    });
+//    console.log(persons);
+    console.log(agedAll);
+
+    persons.forEach(function (value) {
+       console.log(value) ;
+    });
+
+    let overallAge = [454, 4, 88, 54.54, 444.55].reduce(function (prev, next) {
+        console.log(prev, next);
+        return prev + next;
+    });
+    console.log(overallAge);
+    console.log('--------------------------------------------------------');
+    console.log('Callback descriotion from inside');
+    function foo(callback) {
+        console.log(callback);
+    }
+    foo(function () {
+       console.log('Hello World for callback');
+    });
+    console.log('Callback action from inside');
+    function foo1(callback) {
+        callback();
+    }
+    foo1(function () {
+        console.log('Hello World for callback');
+    });
+
+    console.log('--------------------------------------------------------');
+    function  myForEach(arr, callback) {
+        for(const element of arr){
+            callback(element);
+        }
+    }
+    myForEach([154, 54,87, 5645], function (value) {
+        console.log(value);
+    });
+    function  myFilter(arr, callback) {
+        let filteredArr=[];
+        for(const element of arr) {
+            let resFromCallback = callback(element);
+
+            if (resFromCallback){filteredArr.push(element);}
+                    }
+        return filteredArr;
+    }
+    let filteredArray = myFilter([154, 54,87, 5645], function (value) {
+        return value>90;
+    });
+    console.log(filteredArray);
+
+    function myFind(arr, callback) {
+        for(const person of arr){
+           let resFromCallback= callback(person);
+            if(resFromCallback){
+                return person;
+            }
+        }
+    }
+    let persons1=[
+        {name: 'xxxx', age: 20},
+        {name: 'yyyy', age: 30}
+    ];
+
+    let person1 = myFind(persons1, function (person) {
+        return person.age===30;
+    });
+    console.log(person1);
+
+    console.log('--------------------------------------------------------');
+
+    function outer() {
+        let xxx=45;
+        function increment() {
+            return ++xxx;
+        }
+        return increment;
+    }
+
+    let incrementFromOuter = outer();
+    console.log(incrementFromOuter);
+    console.log(incrementFromOuter());
+    console.log(incrementFromOuter());
+    console.log(incrementFromOuter());
+    
+    function outer2() {
+        let person={name:'Petya'};
+        function getName() {
+            return person.name;
+        }
+        function setName(newName) {
+            person.name= newName;
+        }
+        return {
+             getName,
+             setName
+        };
+    }
+
+    let getNameFromOuter2 = outer2();
+//    outer2.setName('Misha');
+    console.log(outer2());
+    console.log(getNameFromOuter2);
+    console.log(getNameFromOuter2.getName());
+  getNameFromOuter2.setName('Misha');
+    console.log(getNameFromOuter2);
+    console.log(getNameFromOuter2.setName('Misha'));
+
+</script>
+</body>
+</html>

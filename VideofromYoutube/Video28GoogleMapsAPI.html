@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video28GoogleMapsAPI</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+        #map{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<script>
+    let map;
+    function initMap() {
+        navigator.geolocation.getCurrentPosition(function (pos) {
+
+            map = new google.maps.Map(document.getElementById('map'),{
+            center:{lat: pos.coords.latitude, lng: pos.coords.longitude},
+            zoom: 8
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: pos.coords.latitude, lng: pos.coords.longitude},
+                map:  map,
+                title: "oktenweb",
+            });
+        });
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key"> </script>
+</body>
+</html>

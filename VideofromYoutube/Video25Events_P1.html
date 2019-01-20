@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Viswo25Events  P-1</title>
+    <style>
+        #point{
+            height: 200px;
+            width: 200px;
+            background: coral;
+        }
+    </style>
+</head>
+<body>
+
+<button id="target">push me</button>
+
+<button id="target2" onclick="(
+    function() {
+    console.log('push me again 2')
+    }())"> push me 2</button>
+
+<button id ="target3"> push me 3 </button>
+
+<div id="point"></div>
+
+<input type="text" id="inp" placeholder="">
+
+<p id="resolve"></p>
+
+<script>
+
+    let btn = document.getElementById('target');
+    btn.onclick = function () {
+        console.log('click'); // it is written in console as many times as we click the button
+    };
+    let btn3 = document.getElementById('target3');
+    btn3.onmouseover = function (ev) {
+        console.log('over me again 3', ev); //ev - keeps info about an event
+    };
+
+    let point = document.getElementById('point');
+    point.onmousemove = function (ev) {
+        console.log(ev.clientX, ev.clientY); // X & Y give the position of a mouse on the div-element
+
+        this.style.background = `rgb(${ev.clientX}, ${ev.clientY}, ${ev.clientY})`;
+    };
+
+    let input = document.getElementById('inp');
+    input.oninput = function (ev) {
+        console.log(this.value); // it duplicates input text to console
+        resolve.innerText = this.value; // it prints it into a paragraph in <p> tag
+        ev.preventDefault(); // prevents default situation - good practice to use it
+    };
+
+    let resolve = document.getElementById('resolve');
+
+
+</script>
+
+</body>
+</html>

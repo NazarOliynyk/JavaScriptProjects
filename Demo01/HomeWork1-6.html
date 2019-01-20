@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork1-6</title>
+</head>
+<body>
+
+<script>
+
+    let a; a= parseFloat(prompt("insert the first number"));
+    let b; b= parseFloat(prompt("insert the second number"));
+    let c; c= parseFloat(prompt("insert the third number"));
+
+    if((a==b)||(a==c)||(b==c)){console.log("insert unequal numbers only!");}
+
+    else if((a>b)&&(b>c)){console.log(c+", "+b+", "+a);} //cba
+    else if((a>c)&&(c>b)){console.log(b+", "+c+", "+a);} //bca
+    else if((b>a)&&(a>c)){console.log(c+", "+a+", "+b);} //cab
+    else if((b>c)&&(c>a)){console.log(a+", "+c+", "+b);} //acb
+    else if((c>a)&&(a>b)){console.log(b+", "+a+", "+c);} //bac
+    else if((c>b)&&(b>a)){console.log(a+", "+b+", "+c);} //abc
+    else {console.log("insert numbers only!");}
+
+</script>
+</body>
+</html>

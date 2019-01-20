@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video29 Local Storage</title>
+
+</head>
+<body>
+
+<script>
+    console.log(localStorage); //it exists in browser
+    // also possible to get to it - application in developer tool (near console) - local storage
+    localStorage.setItem('oktenweb', 'hello'); // it keeps key and value
+    console.log(localStorage.getItem('oktenweb'));
+    //it sets unreadable Object
+    // localStorage.setItem('oktenweb1', {title: 'okten', age: 8}); //it sets unreadable Object
+    // JSON is needed
+    localStorage.setItem('oktenweb1', JSON.stringify({title: 'okten', age: 8}));
+   // to print it into console
+    console.log(localStorage.getItem('oktenweb1'));
+    // or in the regular kind of object
+    console.log(JSON.parse(localStorage.getItem('oktenweb1')));
+
+</script>
+
+</body>
+</html>

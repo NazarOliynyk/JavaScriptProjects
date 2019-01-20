@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video26Events P2</title>
+    <style>
+        #target1{
+            width: 400px;
+            height: 400px;
+            background: red;
+        }
+        #target2{
+            width: 200px;
+            height: 200px;
+            background: silver;
+        }
+        #target3{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+<div id="target1">
+    <div id="target2">
+        <div id="target3">
+
+        </div>
+    </div>
+</div>
+<script>
+    // document.getElementById('target1').onclick= function () {
+    //     console.log('target1');
+    // };
+    // document.getElementById('target2').onclick= function () {
+    //     console.log('target2');
+    // };
+    // document.getElementById('target3').onclick= function () {
+    //     console.log('target3');
+    // };
+
+    document.getElementById('target1').addEventListener('click', function () {
+        console.log('target1');
+    }, true);
+
+    document.getElementById('target2').addEventListener('click', function (e) {
+        console.log('target2');
+        e.stopPropagation(); //allows to stop events
+    }, true);
+
+    document.getElementById('target3').addEventListener('click', function () {
+        console.log('target3');
+    }, true);
+
+
+</script>
+</body>
+</html>

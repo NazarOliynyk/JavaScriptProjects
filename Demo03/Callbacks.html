@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Callbacks</title>
+</head>
+<body>
+<script>
+    console.log('Callback descriotion from inside');
+    function foo(callback) {
+        console.log(callback);
+    }
+    foo(function () {
+        console.log('Hello World for callback');
+    });
+    console.log('Callback action from inside');
+    function foo1(callback) {
+        callback();
+    }
+    foo1(function () {
+        console.log('Hello World for callback');
+    });
+
+    console.log('--------------------------------------------------------');
+    function  myForEach(arr, callback) {
+        for(const element of arr){
+            callback(element);
+        }
+    }
+    myForEach([154, 54,87, 5645], function (value) {
+        console.log(value);
+    });
+    function  myFilter(arr, callback) {
+        let filteredArr=[];
+        for(const element of arr) {
+            let resFromCallback = callback(element);
+
+            if (resFromCallback){filteredArr.push(element);}
+        }
+        return filteredArr;
+    }
+    let filteredArray = myFilter([154, 54,87, 5645], function (value) {
+        return value>90;
+    });
+    console.log(filteredArray);
+
+    function myFind(arr, callback) {
+        for(const person of arr){
+            let resFromCallback= callback(person);
+            if(resFromCallback){
+                return person;
+            }
+        }
+    }
+    let persons1=[
+        {name: 'xxxx', age: 20},
+        {name: 'yyyy', age: 30}
+    ];
+
+    let person1 = myFind(persons1, function (person) {
+        return person.age===30;
+    });
+    console.log(person1);
+    console.log('____________________________________________');
+    
+    
+</script>
+</body>
+</html>

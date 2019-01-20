@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> ClassWork6 DOM Events </title>
+    <style>
+        .foo{
+            width: 50px;
+            height: 50px;
+            background: palegreen;
+            transition: 1500ms;
+        }
+        .foo1{
+            width: 50px;
+            height: 50px;
+            background: fuchsia;
+            /*transition: 1500ms;*/
+        }
+    </style>
+</head>
+<body>
+<!-- event beyond JS-->
+<button onclick="(function () {console.log('Click 1!');}())">Beyond Java Script</button>
+<!--the argument in onclick should be with ()-->
+<button onclick="clickedButton()">JS Button 1</button>
+<button onclick="clickedButton()">JS Button 2</button>
+<button onclick="clickedButton()">JS Button 3</button>
+
+<p> ------------------------------divider---------------------</p>
+<div class="foo"></div>
+<p> ------------------------------divider---------------------</p>
+<div class="foo1"></div>
+ <input type="text" id="color">
+<p> ------------------------------divider---------------------</p>
+<p id="pcolor"> Hello World!! </p>
+
+<script>
+    // the first way to deal with buttons with JS
+    function clickedButton() {
+        console.log('Click 2!');
+    }
+
+    // the second way to deal with buttons with JS
+
+    let button3 = document.getElementsByTagName('button')[2]; // deal with an array of buttons
+    console.log(button3);
+    button3 = clickedButton; // here do not put () - it will cause self invoke
+    // the third way to deal with buttons with JS
+    let button4 = document.getElementsByTagName('button')[3];
+    button4.onclick= function () {
+        console.log("Click 3!");
+       //  console.log(this); // it will tell all about our <button>
+    }
+
+    console.log('-----------------------divider------------');
+
+    let fooDiv = document.getElementsByClassName('foo')[0];
+    fooDiv.onmouseenter = function () {
+        console.log('Entered <div>');
+        fooDiv.style.background = 'pink';
+    };
+    fooDiv.onmouseleave = function () {
+        console.log('Left <div>');
+        fooDiv.style.background = 'orange';
+    };
+
+    fooDiv.onmouseover = function (ev) {
+        console.log(ev.clientX, ' ', ev.clientY);
+    };
+    console.log('-----------------------divider------------');
+
+    let fooDiv1 = document.getElementsByClassName('foo1')[0];
+
+    fooDiv1.onmousedown = function (emd) {
+        if (emd.button === 0) {   // the number of a button on our mouse
+            fooDiv1.onmouseover = function (ev) {
+                fooDiv1.style.background = `rgb(${ev.clientX}, ${ev.clientY}, ${ev.clientX})`;
+            }
+        }
+    };
+    fooDiv1.onmouseup = function () {
+        fooDiv1.onmouseover = null;
+    };
+    //
+    // let inputColor = document.getElementsByClassName('color')[0];
+    // inputColor.oninput = function () {
+    //     fooDiv1.style.background = inputColor.value;
+    //     fooDiv1.innerText = inputColor.value
+    // }
+    //
+    //
+    // let pColor = document.getElementById('pcolor');
+    // pColor.ondblclick = function () {
+    //     console.log('ondblclick');
+    //     let inputP = document.createElement('input');
+    //     inputP.value = pColor.innerText;
+    //     document.body.replaceChild(inputP, pColor);
+    //
+    //     inputP.onblur = function () {
+    //         pColor.innerText = inputP.value;
+    //         document.body.replaceChild(pColor, inputP);
+    //     }
+    // }
+
+</script>
+</body>
+</html>

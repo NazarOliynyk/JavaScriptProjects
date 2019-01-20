@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork4CarsArrayt</title>
+</head>
+<body>
+<script>
+
+    function Car (make, model, year, color, bodyType, engineType, engineCapacity, power) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.bodyType = bodyType;
+        this.engineType = engineType;
+        this.engineCapacity = engineCapacity;
+        this.power = power;
+    }
+    Car.prototype.specification = function () {
+        console.log('The car- ', this.make,',',this.model,', ',this.year,', ', this.color,', ',
+                '\n',    this.bodyType,', ', this.engineType,', ', this.engineCapacity,', ', this.power,';');
+    };
+
+    let cars = [
+        new Car("subaru", "wrx", 2010, "blue", "sedan", "ej204x", 2, 400),
+        new Car("subaru", "legacy", 2007, "silver", "sedan", "ez30", 3, 250),
+        new Car("subaru", "tribeca", 2011, "white", "jeep", "ej20", 2, 300),
+        new Car("subaru", "leone", 1998, "yellow", "sedan", "ez20x", 2, 140),
+        new Car("subaru", "impreza", 2014, "red", "sedan", "ej204x", 2, 200),
+        new Car("subaru", "outback", 2014, "red", "hachback", "ej204", 2, 165),
+        new Car("bmw", "115", 2013, "red", "hachback", "f15", 1.5, 120),
+        new Car("bmw", "315", 2010, "white", "sedan", "f15", 1.5, 120),
+        new Car("bmw", "650", 2009, "black", "coupe", "f60", 6, 350),
+        new Car("bmw", "320", 2012, "red", "sedan", "f20", 2, 180),
+        new Car("mercedes", "e200", 1990, "silver", "sedan", "eng200", 2, 180),
+        new Car("mercedes", "e6.3", 2017, "yellow", "sedan", "amg6.3", 6, 400),
+        new Car("mercedes", "c250", 2017, "red", "sedan", "eng25", 2.5, 230),
+    ];
+
+    //creating customized functions in the prototype of a super-class Array
+
+    Array.prototype.myForEach = function ( callback) {
+        for(const element of this){
+            callback(element);
+        }
+    };
+
+
+    Array.prototype.myFilter = function ( callback) {
+        let filteredArr=[];
+        for(const car of this){
+
+            if(callback(car)){
+                filteredArr.push(car);
+            }
+        }return filteredArr;
+    };
+
+    Array.prototype.myMap = function ( callback) {
+        let  mappedArr = [];
+        for(const car of this){
+            mappedArr.push(callback(car));
+        }return mappedArr;
+    };
+
+
+    //iterating on the array cars with myForEach
+
+    cars.myForEach(function (obj) {
+        console.log(obj);
+    });
+
+    //selecting subarrays with prearanged features of elements
+
+    let carsRed= cars.myFilter(function (obj) {
+        return obj.color ==="red";
+    });
+    console.log('Red cars are: ', carsRed);
+
+    let cars3Litre= cars.myFilter(function (obj) {
+        return obj.engineCapacity >3;
+    });
+    console.log('Cars with more than 3-litre engine capacity  ', cars3Litre);
+    let cars2Litre= cars.myFilter(function (obj) {
+        return obj.engineCapacity ===2;
+    });
+    console.log('Cars with 2-litre engine capacity  ', cars2Litre);
+
+    let cars3LitreMecedes= cars.myFilter(function (obj) {
+        return (obj.engineCapacity >3)&&(obj.make==="mercedes");
+    });
+    console.log('Cars with more than 3-litre engine capacity and made by Mecedes', cars3LitreMecedes);
+
+    let cars3LitreSubaru= cars.myFilter(function (obj) {
+        return (obj.engineCapacity >3)&&(obj.make==="subaru");
+    });
+    console.log('Cars with more than 3-litre engine capacity and made by Subaru', cars3LitreSubaru);
+
+    let cars300HorsePower= cars.myFilter(function (obj) {
+        return obj.power >300;
+    });
+    console.log('Cars with more than 300-horsepower engine ', cars300HorsePower);
+
+    let cars300HorsePowerSubaru= cars.myFilter(function (obj) {
+        return (obj.power >300)&&(obj.make==="subaru");
+    });
+    console.log('Cars with more than 300-horsepower engine and made by Subaru', cars300HorsePowerSubaru);
+
+    let carsEjEngine= cars.myFilter(function (obj) {
+        return obj.engineType.indexOf('ej') === 0;
+    });
+    console.log('Cars with "ej" engine-type ', carsEjEngine);
+
+    //using method myMap to get a new array of cars with all changed engineType
+
+     let carsAllGasoline  = cars.myMap(function (obj) {
+         obj.engineType = 'gasoline';
+         return obj;
+        });
+
+    console.log('Cars with all gasoline engine-type ', carsAllGasoline);
+
+</script>
+
+</body>
+</html>

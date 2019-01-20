@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video27BOM</title>
+</head>
+<body>
+
+<h1> page </h1>
+<button id="frw">forward</button>
+<a href="next.html"> page-2 </a>
+
+<script>
+
+    console.log(window.screen);
+    console.log(window.screen.availWidth);
+    console.log(window.history);
+
+    document.getElementById('frw').onclick = function () {
+        window.history.forward();  // sends us a step forward - same as an arrow in browser
+    }
+
+    console.log(window.navigator.language); // current language
+    console.log(window.navigator.languages); // an array of current languages
+    console.log(window.navigator.vendor); // current browser
+    console.log(window.navigator.platform); // current platform
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+       console.log(pos.coords.latitude, pos.coords.longitude); // insert it into google map
+    });
+
+    //open();
+    //close(); // uncomment it and it will close the page immediately
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array3</title>
+</head>
+<body>
+<script>
+
+
+//    функция принимает два числовых массива и колбек
+//    который должен исполнять действия над этими массивами
+//    смысл дейсвтий
+    let array1 = [4, 8, 9, 6] ;
+    let array2 = [7,2,1];
+    let array3 = [46.44, 45.447, 55, 88.23, -99];
+    let array4 = [88, 1, 8, 7, 3, 4, 9, 6, -8, 6, 78, 99, -9999, 55.55];
+    console.log('---------------1-------------');
+
+    // перебрать массивы, сложть их значения и вернуть результат для дальнейшего
+    //использования
+
+    function one(arr1, arr2, callback) {
+        callback(arr1, arr2);
+    }
+
+    one(array1, array2, function (arr1, arr2) {
+        let sum1=0;  // variables must be initialized!!
+        let sum2=0; // variables must be initialized!!
+        for(let element of arr1){
+            sum1= sum1 + element;
+        }
+        for(let element of arr2){
+            sum2= sum2 + element;
+        }
+        console.log('the sum of two arrays is- ', (sum1 + sum2));
+    });
+
+    console.log('---------------2-------------');
+
+    //перебрать массивы, сложить их ячейки с одинаковым индексом и вернуть единый
+    //массив для дальнейшего использования.
+
+
+
+    function two(arr1, arr2, callback) {
+        let finalArr =[];
+        let element=0;
+        for(let i =0; i<arr1.length; i++){
+            for(let j =0; j<arr2.length; j++){
+                if(i===j){
+                    element = arr1[i]+arr2[j];
+                    finalArr.push(element);
+                }
+            }
+        }
+        if(callback(arr1, arr2) === true) { // here arr1 & arr 2 shoul be given to a callback!!
+            for (let a = ((arr1.length - (arr1.length - arr2.length))); a < arr1.length; a++) {
+                finalArr.push(arr1[a]);
+            }
+        }
+        else {
+            for (let a = ((arr2.length - (arr2.length - arr1.length))); a < arr2.length; a++) {
+                finalArr.push(arr2[a]);
+            }
+        }
+        console.log(finalArr);
+    }
+
+    two(array1, array2, function (arr1, arr2) {
+        if(arr1.length > arr2.length)
+        return true;
+    });
+
+    console.log('yet another tryout with bigger arrays');
+    two(array3, array4, function (arr1, arr2) {
+        return (arr1.length > arr2.length);
+    });
+
+
+
+</script>
+
+</body>
+</html>

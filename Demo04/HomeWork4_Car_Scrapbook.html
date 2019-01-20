@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork4_Car_Array</title>
+</head>
+<body>
+<script>
+
+function Car (make, model, year, color, bodyType, engineType, engineCapacity, power) {
+   this.make = make;
+   this.model = model;
+   this.year = year;
+   this.color = color;
+   this.bodyType = bodyType;
+   this.engineType = engineType;
+   this.engineCapacity = engineCapacity;
+   this.power = power;
+}
+   Car.prototype.specification = function () {
+       console.log('The car- ', this.make,',',this.model,', ',this.year,', ', this.color,', ',
+           '\n',    this.bodyType,', ', this.engineType,', ', this.engineCapacity,', ', this.power,';');
+   };
+
+let cars = [
+   new Car("subaru", "wrx", 2010, "blue", "sedan", "ej204x", 2, 400),
+   new Car("subaru", "legacy", 2007, "silver", "sedan", "ez30", 3, 250),
+   new Car("subaru", "tribeca", 2011, "white", "jeep", "ej20", 2, 300),
+   new Car("subaru", "leone", 1998, "yellow", "sedan", "ez20x", 2, 140),
+   new Car("subaru", "impreza", 2014, "red", "sedan", "ej204x", 2, 200),
+   new Car("subaru", "outback", 2014, "red", "hachback", "ej204", 2, 165),
+   new Car("bmw", "115", 2013, "red", "hachback", "f15", 1.5, 120),
+   new Car("bmw", "315", 2010, "white", "sedan", "f15", 1.5, 120),
+   new Car("bmw", "650", 2009, "black", "coupe", "f60", 6, 350),
+   new Car("bmw", "320", 2012, "red", "sedan", "f20", 2, 180),
+   new Car("mercedes", "e200", 1990, "silver", "sedan", "eng200", 2, 180),
+   new Car("mercedes", "e6.3", 2017, "yellow", "sedan", "amg6.3", 6, 400),
+   new Car("mercedes", "c250", 2017, "red", "sedan", "eng25", 2.5, 230),
+];
+
+
+function Arr(arr){
+    for (let i = 0; i < arr.length; i++) {
+        this[i] = arr[i];
+    }
+    return this;
+}
+
+Arr.prototype.print =  function(){
+
+    console.log(this[7]);
+
+};
+
+let cars1= new Arr(cars);
+// console.log(cars1);
+
+//cars1.print();
+
+Arr.prototype.myForEach = function ( callback) {
+    for (let i = 0; i < this.length; i++){
+        callback(this[i]);
+    }
+};
+
+cars1.myForEach(function (obj) {
+    console.log(obj);
+});
+
+// function myFilter(arr, callback) {
+//     let filteredArr=[];
+//     for(const car of arr){
+//         // let filteredArr=[];
+//         if(callback(car)){
+//             filteredArr.push(car);
+//         }
+//      }return filteredArr;
+// }
+
+// let carsRed= myFilter(cars, function (obj) {
+//    return obj.color ==="red";
+// });
+// console.log(carsSilver);
+
+
+// Array.prototype.filterArray = function (callback) {
+//     let filterArr = this.filter(function (obj) {
+//             return callback(obj);
+//         }
+//     );
+//     return filterArr; // можна без цієї змінної. просто return this...
+// };
+
+
+// class Car {
+//     constructor(brand, model, year, color, type, engine, volume, power) {
+//         this.brand = brand;
+//         this.model = model;
+//         this.year = year;
+//         this.color = color;
+//         this.type = type;
+//         this.engine = engine;
+//         this.volume = volume;
+//         this.power = power
+//     }
+//
+//     drive() {
+//         console.log(`You are driving a ${this.brand} ${this.model}`);
+//     }
+// }
+//
+// // создаешь объект
+// // превращаешь его в JSON и потом обратно в объект
+// // создаешь еще одну машину, и применяешь ее метод драйв к 1у объекту -------------------------------------------
+// car1 = new Car("subaru", "impreza", 2014, "red", "sedan", "ej204x", 2, 200);
+// console.log(car1);
+// car1.drive();
+// let carJSON = JSON.stringify(car1);
+// console.log(carJSON);
+// parseCar = JSON.parse(carJSON);
+// console.log(parseCar);
+//
+// car2 = new Car("mercedes", "e200", 1990, "silver", "sedan", "eng200", 2, 180);
+// console.log(car2);
+// car2.drive();
+// car2.drive.call(parseCar); // !!!! підміна
+// console.log('--------------------------------------------------------------');
+//
+//
+// // Создаем свои методы map, filter, foreach
+// // для класса Array, добовляя их через prototype -------------------------------------------------------------------
+// Array.prototype.filterArray = function (callback) {
+//     let filteredArr = this.filter(function (obj) {
+//             return callback(obj);
+//         }
+//     );
+//     return filteredArr; // можна без цієї змінної. просто return this...
+// };
+//
+// Array.prototype.copyArr = function (arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         this[i] = arr[i];
+//     }
+//     return this;
+// };
+//
+// Array.prototype.mapArray = function (callback) {
+//     let mapArr = this.map(function (obj) {
+//             return callback(obj);
+//         }
+//     );
+//     return mapArr; // можна без цієї змінної. просто return this...
+// };
+//
+// // Array.prototype.myMap = function () {
+// //     for (let i = 0; i < this.length; i++) {
+// //         this[i].model = 'aaaaa';
+// //     }
+// //     return this; // можна без цієї змінної. просто return this...
+// // };
+//
+//
+// let cars = [
+//     new Car("subaru", "wrx", 2010, "blue", "sedan", "ej204x", 2, 400),
+//     new Car("subaru", "legacy", 2007, "silver", "sedan", "ez30", 3, 250),
+//     new Car("subaru", "tribeca", 2011, "white", "jeep", "ej20", 2, 300),
+//     new Car("subaru", "leone", 1998, "yellow", "sedan", "ez20x", 2, 140),
+//     new Car("subaru", "impreza", 2014, "red", "sedan", "ej204x", 2, 200),
+//     new Car("subaru", "outback", 2014, "red", "hachback", "ej204", 2, 165),
+//     new Car("bmw", "115", 2013, "red", "hachback", "f15", 1.5, 120),
+//     new Car("bmw", "315", 2010, "white", "sedan", "f15", 1.5, 120),
+//     new Car("bmw", "650", 2009, "black", "coupe", "f60", 6, 350),
+//     new Car("bmw", "320", 2012, "red", "sedan", "f20", 2, 180),
+//     new Car("mercedes", "e200", 1990, "silver", "sedan", "eng200", 2, 180),
+//     new Car("mercedes", "e6.3", 2017, "yellow", "sedan", "amg6.3", 6, 400),
+//     new Car("mercedes", "c250", 2017, "red", "sedan", "eng25", 2.5, 230)
+// ];
+//
+// console.log(cars);
+// console.log('--------------------------------------------------------------');
+//
+// // Отфильтровать по: --------------------------------------------------------------------------------------------
+// // двигун більше 3х літрів
+// // двигун = 2л
+// // виробник мерс
+// // двигун більше 3х літрів + виробник мерседес
+// // двигун більше 3х літрів + виробник субару
+// // сили більше ніж 300
+// // сили більше ніж 300 + виробник субару
+// // мотор серіі ej
+// // сили більше ніж 300 + виробник субару + мотор серіі ej
+// // двигун меньше 3х літрів + виробник мерседес
+// // двигун більше 2л + сили більше 250
+// // сили більше 250  + виробник бмв
+//
+// console.log('двигун більше 3х літрів --------------------------');
+// let filterCars = cars.filterArray(function (car) {
+//     return car.volume > 3;
+// });
+// console.log(filterCars);
+//
+// console.log('двигун = 2л --------------------------------------');
+// filterCars = cars.filterArray(function (car) {
+//     return car.volume === 2;
+// });
+// console.log(filterCars);
+//
+// console.log('двигун більше 3х літрів + виробник мерседес ------');
+// filterCars = cars.filterArray(function (car) {
+//     return (car.volume > 3 && car.brand === 'mercedes');
+// });
+// console.log(filterCars);
+//
+// console.log('сили більше ніж 300 + виробник субару ------------');
+// filterCars = cars.filterArray(function (car) {
+//     return (car.power > 300 && car.brand === 'subaru');
+// });
+// console.log(filterCars);
+//
+// console.log('color == red --------------------------------------');
+// filterCars = cars.filterArray(function (car) {
+//     return (car.color === 'red');
+// });
+// console.log(filterCars);
+//
+//
+// // --- map ------------------------------------------------------------------------------------------------------
+// // console.log('map >>>>>> color = white ------------');
+// // let changeCars = cars;
+// // changeCars.mapArray(function (car) {
+// //     car.color = 'white'; // !!!!! змінить колір на білий глобально
+// //     return car;
+// // });
+// // console.log(changeCars);
+// // console.log(cars);
+//
+// //--- myMap ----------------------------------------------------------------------------------------------------
+// let changeCars = [];
+// changeCars = JSON.parse(JSON.stringify(cars));
+// // changeCars.copyArr(cars);
+// console.log(changeCars);
+// console.log(cars);
+//
+// changeCars.mapArray(function (car) {
+//     car.color = 'white';
+//     return car;
+// });
+// console.log(changeCars);
+// console.log(cars);
+</script>
+
+</body>
+</html>

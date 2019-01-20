@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array4</title>
+</head>
+<body>
+<script>
+
+    // - из двух массивов создать один, который будкт отсортирован в порядке возрастания
+    // и вернуть его для дальнейшего использования.
+
+    let arr1 = [4, 6, 8, 4, 22, 6, 18, 15];
+    let arr2 = [5, 18, 31, 14, 22];
+
+    function concatenateArrays(arr1, arr2) {
+        let arrConcatenated =[];
+        for(var element of arr1){
+            arrConcatenated.push(element);
+        }
+        for(var element of arr2){
+            arrConcatenated.push(element);
+        }
+        return arrConcatenated;
+    }
+    let arrConcatenated = concatenateArrays(arr1, arr2);
+
+    console.log('concatenated array -', arrConcatenated);
+
+    function bubbleSort( arr) {
+        for(let i = arr.length - 1; i > 0; --i) {
+            for(let j = 0; j < i; ++j) {
+                if(arr[j] > arr[j + 1]) {
+                    let tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                }
+            }
+        } return arr;
+
+    }
+    let sortedArrAscent = bubbleSort(arrConcatenated);
+    console.log('sorted in ascending order -', sortedArrAscent);
+
+
+
+    // ______________________________________________________________________________
+  // из двух массивов создать один,
+    //     который не будет включать в себя неуникальные элементы
+    // и вернуть его для дальнейшего использования
+
+
+    // simple cycle for removing non-unique elements
+    // it requires an array to be sorted in ascending order!!!!!
+
+    function deleteNonUnique(arr) {
+        let newArr = [];
+        for (let i =0; i < arr.length; i++) {
+            if (arr[i] !== arr[i + 1]) {
+                newArr.push(arr[i]); //  works also as - newArr[i]= arr[i]; but leaves empty spaces
+            }
+        }return newArr;
+
+    }
+
+    // more sophisticated method with filter without any pre-sorting, works with objects either
+    function FilterNonUnique(arr){
+        var tmp = {};
+        return arr.filter(function (a) {
+            return a in tmp ? 0 : tmp[a]=1;
+        });
+    }
+
+    console.log('array without non-unique elements- ', deleteNonUnique(sortedArrAscent));
+    console.log('filtered array without non-unique elements- ', FilterNonUnique(sortedArrAscent));
+
+    // test it with yet another array
+
+    let newArray = [534, -3, 55, 534, 18, 23, -3, 76, -99, 534, 22, 23, 4, 101, 76, -99, ];
+
+    console.log(deleteNonUnique(bubbleSort(newArray))); // has to be sorted
+    console.log(FilterNonUnique(newArray));
+
+</script>
+</body>
+</html>
